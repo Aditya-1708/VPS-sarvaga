@@ -4,7 +4,7 @@ import img1 from "../../assets/sarees/product 1/jpeg-optimizer__DSC1395-1.JPG";
 import img2 from "../../assets/sarees/product 2/jpeg-optimizer__DSC1407-1.JPG";
 import img3 from "../../assets/sarees/product 3/jpeg-optimizer__DSC1423-1.JPG";
 import img4 from "../../assets/_DSC1528-1.JPG";
-import img5 from "../../assets/sarees/product 5/variant2/_DSC1557.JPG";
+import img5 from "../../assets/sarees/product 4/variant 4/_DSC1487.JPG";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
@@ -12,7 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const ProductsData = [
     {
-        id: 1,
+        id: 5,
         img: img1,
         title: "Chanderi Silk",
         rating: 4.8,
@@ -20,7 +20,7 @@ const ProductsData = [
         aosDelay: "0",
     },
     {
-        id: 2,
+        id: 7,
         img: img2,
         title: "Silk zari stripe",
         rating: 4.5,
@@ -28,7 +28,7 @@ const ProductsData = [
         aosDelay: "100",
     },
     {
-        id: 4,
+        id: 8,
         img: img3,
         title: "Dupion Silk",
         rating: 5.0,
@@ -36,7 +36,7 @@ const ProductsData = [
         aosDelay: "200",
     },
     {
-        id: 3,
+        id: 9,
         img: img4,
         title: "Cotton",
         rating: 4.3,
@@ -44,11 +44,11 @@ const ProductsData = [
         aosDelay: "300",
     },
     {
-        id: 5,
+        id: 12,
         img: img5,
-        title: "Handbrush Linen silk",
+        title: "Cotton Saree",
         rating: 4.6,
-        color: "Light Orange",
+        color: "Sky Blue",
         aosDelay: "400",
     },
 ];
