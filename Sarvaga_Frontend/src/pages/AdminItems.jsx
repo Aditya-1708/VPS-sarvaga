@@ -10,7 +10,7 @@ import PropagateLoader from 'react-spinners/PropagateLoader';
 import axiosInstance from '../api/AxiosInstance';
 
 const AdminItems = () => {
-  const { isLoading } = useAuth0();
+  const { isLoading , user } = useAuth0();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [filePreviews, setFilePreviews] = useState([]);
@@ -27,7 +27,7 @@ const AdminItems = () => {
   const [price, setPrice] = useState('');
   const [productCode, setProductCode] = useState('');
   const [specialCategory, setSpecialCategory] = useState('');
-
+  const [isAdmin , setisAdmin] = useState(false);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -40,6 +40,34 @@ const AdminItems = () => {
 
     fetchProducts();
   }, []);
+
+  console.log(user)
+
+  useEffect(()=>{
+   
+    const checkIsAdmin = async()=>{
+      try{
+      const response = await axiosInstance.post("/admin/signin",
+        {
+          username : user.name,
+          email : user.email,
+          name : user.given_name
+        }
+      )
+      if(response.status == 200){
+        setisAdmin(true);
+      }
+      else{
+        setisAdmin(false);
+      }
+    }
+    catch(error)
+    {
+     console.error("Unable to access admin status");
+    }
+   } 
+   checkIsAdmin();
+  })
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -217,7 +245,16 @@ const AdminItems = () => {
         </div>
       ) : (
         <>
+          {!isAdmin ? (<>
           <Navbar />
+          <div className='flex flex-col items-center justify-center min-h-screen'>
+          <p className=' text-lg text-black mb-4'>Unauthorised access to this page</p>
+          <div>
+          <PropagateLoader color='#A855F7' />
+          </div>
+          </div>
+          </>) : (<>
+            <Navbar />
           <div className="p-8 pt-16">
             <h1 className="text-2xl font-bold mb-4">Admin Page</h1>
             <button
@@ -377,7 +414,7 @@ const AdminItems = () => {
               onClose={closeConfirmDialog}
               onConfirm={handleConfirmDelete}
             />
-          </div>
+          </div></>)}
         </>
       )}
     </>
