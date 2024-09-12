@@ -42,10 +42,10 @@ export default function Sarees() {
       ) : (
         <>
           <Navbar />
-          <div className="container mx-auto px-4 mt-16">
-            <h1 className="text-5xl font-bold text-center mb-12 text-gray-800">Our Exquisite Saree Collection</h1>
+          <div className="container mx-auto pr-8 mt-6">
+            <h1 className="text-3xl md:text-5xl font-bold text-center mb-4 md:mb-12 text-gray-800">Our Exquisite <span className="text-[#7E408D]">Saree</span> Collection</h1>
             <Suspense fallback={<div className="flex items-center justify-center min-h-screen"><PropagateLoader color="#A855F7" /></div>}>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 px-2 sm:px-0">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 px-0 sm:px-0">
                 {sarees.map((saree) => (
                   <div key={saree.id} className="w-full">
                     <Card product={saree} />

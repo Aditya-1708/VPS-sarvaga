@@ -64,14 +64,14 @@ const Navbar = () => {
                   className="w-10 h-10 rounded-full border-2 border-white"
                 />
                 <div className="text-right">
-                  <h3 className="text-sm font-semibold">{user.name}</h3>
+                  <h3 className="hidden md:block text-sm font-semibold ">{user.name}</h3>
                   <button
                     onClick={() =>
                       logout({
                         logoutParams: { returnTo: window.location.origin },
                       })
                     }
-                    className="text-xs text-white hover:text-red-400"
+                    className=" text-xs text-white hover:text-red-400"
                   >
                     Log Out
                   </button>
@@ -96,7 +96,7 @@ const Navbar = () => {
       </header>
       <div className={`bg-[#1B0022] ${isMenuOpen ? "block" : "hidden"} md:block`}>
         <div className="container mx-auto">
-          <ul className="flex flex-col md:flex-row justify-center items-center gap-8 py-4">
+          <ul className="flex flex-col md:flex-row justify-center items-center gap-8 py-3 lg:py-5">
             <li>
               <a
                 href="/home"
