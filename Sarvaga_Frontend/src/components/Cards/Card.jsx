@@ -10,7 +10,7 @@ const Card = ({ product }) => {
   return (
     <div 
       onClick={() => handleClick(product.id)} 
-      className="w-full max-w-sm h-96 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform transition-transform hover:scale-105 bg-white m-4 group cursor-pointer"
+      className="w-full max-w-sm h-80 md:h-96 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform transition-transform hover:scale-105 bg-white m-4 group cursor-pointer"
     >
       <div className="relative w-full h-full bg-gray-100 overflow-hidden rounded-lg">
         {product?.images && product.images.length > 0 ? (
